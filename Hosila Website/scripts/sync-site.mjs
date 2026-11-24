@@ -141,8 +141,8 @@ function buildHomepage(pmsRel, imsRel) {
         Business software.<br />
         Without the complexity.
       </h1>
-      <p style="font-size:1.15rem;max-inline-size:38rem;margin-block-start:1.25rem;color:var(--ink-80);">
-        Dependable software for hotels, restaurants, and central stores—helping your team check in guests, settle bills, and control stock smoothly on your own computers, even when internet goes down.
+      <p style="font-size:1.15rem;max-inline-size:36rem;margin-block-start:1.25rem;color:var(--ink-80);">
+        Fast, offline-ready software for hotels, restaurants, and central stores.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-block-start:1.75rem;">
         <a href="/products/compare" class="btn btn-primary btn-lg icon-trigger">
@@ -233,7 +233,7 @@ function buildHomepage(pmsRel, imsRel) {
       <div style="max-inline-size:40rem;display:grid;gap:0.65rem;">
         <div class="eyebrow"><span class="accent-dot"></span><span>Inside the Software</span></div>
         <h2 class="heading-lg">Designed to feel clear at midnight and at noon.</h2>
-        <p>Explore the actual screens your front desk, bar, storekeeper, and accounts team use every day—with comfortable Light and Dark modes for bright lobbies or late shifts.</p>
+        <p>Actual screens from Hosila PMS and Hosila IMS in Dark and Light modes.</p>
       </div>
       <div class="segmented" role="tablist" aria-label="Choose Hosila application">
         <button type="button" role="tab" class="segmented-btn is-active" aria-selected="true" data-showcase-app="pms">
@@ -286,9 +286,8 @@ function buildHomepage(pmsRel, imsRel) {
 <section class="section section-bordered content-deferred">
   <div class="container" style="display:grid;gap:2.25rem;">
     <div style="max-inline-size:40rem;display:grid;gap:0.65rem;">
-      <div class="eyebrow"><span class="accent-dot"></span><span>Why Hospitality Teams Choose Hosila</span></div>
-      <h2 class="heading-lg">Reliable on your front desk. Honest in your back office.</h2>
-      <p>Built specifically for real-world hotels, restaurants, and stores that cannot afford frozen screens or guesswork reports.</p>
+      <div class="eyebrow"><span class="accent-dot"></span><span>Why Hosila</span></div>
+      <h2 class="heading-lg">Reliable at the front desk. Clear in the back office.</h2>
     </div>
     <div class="proof-grid" data-stagger-group data-animate-in>
       <article class="card icon-trigger" data-stagger-item style="display:grid;gap:0.85rem;align-content:start;">
@@ -296,32 +295,32 @@ function buildHomepage(pmsRel, imsRel) {
           <span class="icon-frame">${icon('offline-db', 22, { drawn: true })}</span>
           <span class="mono" style="font-size:0.8rem;font-weight:600;color:var(--ink-45);">01</span>
         </div>
-        <h3>Never Stops for Bad Internet</h3>
-        <p style="font-size:0.9375rem;">Check in guests, post restaurant orders, and issue kitchen stock without waiting on slow internet—your records stay safely on your property computers.</p>
+        <h3>Works Without Internet</h3>
+        <p style="font-size:0.9375rem;">Check in guests, take orders, and issue stock smoothly even when internet drops.</p>
       </article>
       <article class="card icon-trigger" data-stagger-item style="display:grid;gap:0.85rem;align-content:start;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
           <span class="icon-frame">${icon('lan-sync', 22)}</span>
           <span class="mono" style="font-size:0.8rem;font-weight:600;color:var(--ink-45);">02</span>
         </div>
-        <h3>Every Department in Sync</h3>
-        <p style="font-size:0.9375rem;">Run Hosila PMS on your main reception computer and let front desk, bar, restaurant, and accounting staff work together live over your hotel Wi-Fi.</p>
+        <h3>Every Desk in Sync</h3>
+        <p style="font-size:0.9375rem;">Reception, bar, restaurant, and accounts stay updated live over your property Wi-Fi.</p>
       </article>
       <article class="card icon-trigger" data-stagger-item style="display:grid;gap:0.85rem;align-content:start;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
           <span class="icon-frame">${icon('shield-audit', 22, { drawn: true })}</span>
           <span class="mono" style="font-size:0.8rem;font-weight:600;color:var(--ink-45);">03</span>
         </div>
-        <h3>Every Naira &amp; Bottle Accounted For</h3>
-        <p style="font-size:0.9375rem;">No disappearing bills or guesswork stock sheets. Voided bills require a clear reason, night audit balances the day, and store issues update stock value automatically.</p>
+        <h3>Full Accountability</h3>
+        <p style="font-size:0.9375rem;">Every bill, void, night audit, and store issue is tracked automatically.</p>
       </article>
       <article class="card icon-trigger" data-stagger-item style="display:grid;gap:0.85rem;align-content:start;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
           <span class="icon-frame">${icon('key-ed25519', 22, { drawn: true })}</span>
           <span class="mono" style="font-size:0.8rem;font-weight:600;color:var(--ink-45);">04</span>
         </div>
-        <h3>Pay Only for What You Need</h3>
-        <p style="font-size:0.9375rem;">Use Hosila PMS for hotel rooms, Hosila IMS for inventory, or both together. Every license unlocks the complete application with no per-room penalties.</p>
+        <h3>Zero Per-Staff Fees</h3>
+        <p style="font-size:0.9375rem;">One straightforward license unlocks every feature with no per-room charges.</p>
       </article>
     </div>
   </div>
@@ -339,19 +338,19 @@ function buildHomepage(pmsRel, imsRel) {
     </div>
     <div class="workflows-grid" data-stagger-group data-animate-in>
       <div class="card-subtle icon-trigger" data-stagger-item style="display:grid;gap:0.75rem;align-content:start;">
-        <div style="display:flex;align-items:center;gap:0.6rem;color:var(--color-accent-ink);">${icon('room-board', 20)}<span class="mono" style="font-size:0.8rem;font-weight:700;">FRONT DESK &amp; RECEPTION</span></div>
-        <h3>Spot Room Status in One Second</h3>
-        <p style="font-size:0.9375rem;">Color-coded room bars, instant guest lookup, and a side-panel Room Inspector help receptionists check in guests quickly and stop accidental check-ins into dirty rooms.</p>
+        <div style="display:flex;align-items:center;gap:0.6rem;color:var(--color-accent-ink);">${icon('room-board', 20)}<span class="mono" style="font-size:0.8rem;font-weight:700;">FRONT DESK</span></div>
+        <h3>Instant Room Visibility</h3>
+        <p style="font-size:0.9375rem;">Color-coded rooms, fast guest lookup, and automatic dirty-room protection.</p>
       </div>
       <div class="card-subtle icon-trigger" data-stagger-item style="display:grid;gap:0.75rem;align-content:start;">
-        <div style="display:flex;align-items:center;gap:0.6rem;color:var(--color-accent-ink);">${icon('excel-parser', 20, { drawn: true })}<span class="mono" style="font-size:0.8rem;font-weight:700;">KITCHEN &amp; CENTRAL STORE</span></div>
-        <h3>Import Market Excel Lists Safely</h3>
-        <p style="font-size:0.9375rem;">Upload weekly buyer market spreadsheets straight into Hosila IMS. Catch price jumps, unit mix-ups, and total errors for storekeeper approval before stock balances update.</p>
+        <div style="display:flex;align-items:center;gap:0.6rem;color:var(--color-accent-ink);">${icon('excel-parser', 20, { drawn: true })}<span class="mono" style="font-size:0.8rem;font-weight:700;">CENTRAL STORE</span></div>
+        <h3>Smart Market Import</h3>
+        <p style="font-size:0.9375rem;">Import buyer Excel lists directly and flag price jumps before stock updates.</p>
       </div>
       <div class="card-subtle icon-trigger" data-stagger-item style="display:grid;gap:0.75rem;align-content:start;">
-        <div style="display:flex;align-items:center;gap:0.6rem;color:var(--color-accent-ink);">${icon('night-audit', 20)}<span class="mono" style="font-size:0.8rem;font-weight:700;">MANAGEMENT &amp; ACCOUNTS</span></div>
-        <h3>Clear Shift Handovers &amp; Audit Trails</h3>
-        <p style="font-size:0.9375rem;">Every voided charge leaves a permanent note with staff attribution, Night Audit triggers automatic daily backups, and Corporate City Ledger tracks unpaid invoices cleanly.</p>
+        <div style="display:flex;align-items:center;gap:0.6rem;color:var(--color-accent-ink);">${icon('night-audit', 20)}<span class="mono" style="font-size:0.8rem;font-weight:700;">ACCOUNTS</span></div>
+        <h3>Clean Shift Handovers</h3>
+        <p style="font-size:0.9375rem;">Permanent audit trails, Night Audit backups, and corporate City Ledger tracking.</p>
       </div>
     </div>
   </div>
@@ -360,13 +359,13 @@ function buildHomepage(pmsRel, imsRel) {
 <section class="section section-bordered">
   <div class="container">
     <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;padding:2.25rem;">
-      <div style="max-inline-size:36rem;display:grid;gap:0.45rem;">
-        <h2 class="heading-md">See which Hosila application fits your business.</h2>
-        <p style="font-size:0.95rem;">Compare features across Hosila PMS, Hosila IMS, and upcoming Hosila POS, or download a 14-day free trial for Windows today.</p>
+      <div style="max-inline-size:34rem;display:grid;gap:0.45rem;">
+        <h2 class="heading-md">Ready to try Hosila at your property?</h2>
+        <p style="font-size:0.95rem;">Download a 14-day free trial for Windows or chat directly with our sales team.</p>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
-        <a href="/products/compare" class="btn btn-primary icon-trigger"><span>Compare Products</span>${icon('arrow-right', 16)}</a>
-        <a href="/docs/" class="btn btn-secondary icon-trigger">${icon('book-docs', 16)}<span>Read User Guides</span></a>
+        <a href="/downloads" class="btn btn-primary icon-trigger">${icon('download-tray', 16)}<span>Download for Windows</span></a>
+        <a href="/contact" class="btn btn-secondary icon-trigger">${icon('whatsapp', 16)}<span>Contact Sales</span></a>
       </div>
     </div>
   </div>
@@ -420,10 +419,10 @@ function buildPmsPage(pmsRel) {
         <span class="badge">For Hotels, Resorts &amp; Guest Houses</span>
       </div>
       <h1 class="display-xl" style="font-size:clamp(2.2rem,4.5vw,3.6rem);">Hotel management built for calm, fast front desks.</h1>
-      <p style="font-size:1.1rem;color:var(--ink-80);">Install Hosila PMS on your main reception computer and keep receptionists, housekeeping supervisors, hotel restaurant cashiers, and accounts teams connected in real time over your property Wi-Fi.</p>
+      <p style="font-size:1.1rem;color:var(--ink-80);">Rooms, housekeeping, restaurant billing, and daily accounts connected live across your hotel Wi-Fi.</p>
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-block-start:0.5rem;">
-        <a href="${escHtml(dl)}" class="btn btn-primary btn-lg icon-trigger">${icon('download-tray', 18)}<span>Download Hosila PMS for Windows</span></a>
-        <a href="/docs/pms/lan-sync-setup/" class="btn btn-secondary btn-lg icon-trigger">${icon('lan-sync', 18)}<span>Multi-Desk Wi-Fi Setup Guide</span></a>
+        <a href="${escHtml(dl)}" class="btn btn-primary btn-lg icon-trigger">${icon('download-tray', 18)}<span>Download Hosila PMS</span></a>
+        <a href="/pricing" class="btn btn-secondary btn-lg icon-trigger"><span>View Pricing</span>${icon('arrow-right', 16)}</a>
       </div>
     </div>
     ${appWindowFrame({ baseName: 'pms-room-board', title: `Hosila PMS · Live Room Board`, alt: 'Hosila PMS Room Board with clean, occupied, dirty, and maintenance rooms', eager: true })}
@@ -431,38 +430,11 @@ function buildPmsPage(pmsRel) {
 </section>
 
 <section class="section section-bordered content-deferred">
-  <div class="container" style="display:grid;gap:2rem;">
-    <div style="max-inline-size:42rem;display:grid;gap:0.6rem;">
-      <div class="eyebrow"><span class="accent-dot"></span><span>How It Works At Your Property</span></div>
-      <h2 class="heading-lg">One main computer. Your whole property connected.</h2>
-      <p>Simple to set up in your office with zero monthly cloud lag.</p>
-    </div>
-    <div class="pms-topo-grid" data-stagger-group data-animate-in>
-      <div class="card icon-trigger" data-stagger-item style="display:grid;gap:0.75rem;">
-        ${icon('offline-db', 24, { drawn: true })}
-        <h3>1. Main Reception Computer</h3>
-        <p style="font-size:0.9375rem;">Install Hosila PMS once on your main reception Windows computer. Every guest folio, room charge, and accounting record stays safely on your premises.</p>
-      </div>
-      <div class="card icon-trigger" data-stagger-item style="display:grid;gap:0.75rem;">
-        ${icon('lan-sync', 24)}
-        <h3>2. Every Desk Connected on Wi-Fi</h3>
-        <p style="font-size:0.9375rem;">Additional front-desk laptops, restaurant/bar tablets, and manager offices open Hosila PMS in their browser over your hotel Wi-Fi—seeing room updates and orders instantly.</p>
-      </div>
-      <div class="card icon-trigger" data-stagger-item style="display:grid;gap:0.75rem;">
-        ${icon('shield-audit', 24, { drawn: true })}
-        <h3>3. Runs Offline, Emails When Online</h3>
-        <p style="font-size:0.9375rem;">Check-ins, room moves, restaurant dockets, and night audit require <strong>no internet</strong>. Optional guest confirmation and checkout receipt emails send automatically whenever internet is present.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-bordered content-deferred">
   <div class="container" style="display:grid;gap:1.75rem;">
     <div style="max-inline-size:42rem;display:grid;gap:0.55rem;">
-      <div class="eyebrow"><span class="accent-dot"></span><span>Try It Live</span></div>
-      <h2 class="heading-lg">Test the Housekeeping Check-In Guard.</h2>
-      <p>Click any room below to preview how Hosila PMS protects room standards by blocking check-ins into dirty or maintenance rooms until housekeeping clears them.</p>
+      <div class="eyebrow"><span class="accent-dot"></span><span>Interactive Preview</span></div>
+      <h2 class="heading-lg">Housekeeping Check-In Guard.</h2>
+      <p>Click any room to see how Hosila PMS blocks check-ins into dirty or maintenance rooms.</p>
     </div>
     <div class="pms-sandbox-layout card">
       <div class="pms-sandbox-grid" role="list" aria-label="Sample hotel rooms">
@@ -606,11 +578,11 @@ function buildImsPage(imsRel) {
         <span class="badge badge-mint">Hosila IMS · Version ${escHtml(ver)}</span>
         <span class="badge">For Hotel Stores, Kitchens, Bars &amp; Supermarkets</span>
       </div>
-      <h1 class="display-xl" style="font-size:clamp(2.2rem,4.5vw,3.6rem);">Know what came in, what went out, and what remains—to the last bottle.</h1>
-      <p style="font-size:1.1rem;color:var(--ink-80);">Built for storekeepers, executive chefs, F&amp;B managers, and hospitality auditors. Runs smoothly offline on your store computer, turns messy market lists into accurate restocks, and tracks every naira of stock value.</p>
+      <h1 class="display-xl" style="font-size:clamp(2.2rem,4.5vw,3.6rem);">Know what came in, what went out, and what remains.</h1>
+      <p style="font-size:1.1rem;color:var(--ink-80);">Offline inventory control for central stores, kitchens, and bars with exact stock valuation.</p>
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-block-start:0.5rem;">
-        <a href="${escHtml(dl)}" class="btn btn-primary btn-lg icon-trigger">${icon('download-tray', 18)}<span>Download Hosila IMS for Windows</span></a>
-        <a href="/docs/ims/collections-and-procurement-parser/" class="btn btn-secondary btn-lg icon-trigger">${icon('excel-parser', 18)}<span>Read Purchasing Guide</span></a>
+        <a href="${escHtml(dl)}" class="btn btn-primary btn-lg icon-trigger">${icon('download-tray', 18)}<span>Download Hosila IMS</span></a>
+        <a href="/pricing" class="btn btn-secondary btn-lg icon-trigger"><span>View Pricing</span>${icon('arrow-right', 16)}</a>
       </div>
     </div>
     ${appWindowFrame({ baseName: 'ims-dashboard', title: 'Hosila IMS · Store Overview & Stock Value', alt: 'Hosila IMS Dashboard showing total stock value, 14-day movement, and activity log', eager: true })}
@@ -868,26 +840,24 @@ function buildComparePage() {
   );
 }
 
-function downloadCardHtml(rel, archSummary, docsHref, productHref) {
+function downloadCardHtml(rel, productHref) {
   const d = rel.data;
   const iconName = d.product === 'hosila-pms' ? 'hotel-pms' : 'cube-ims';
-  return `<article class="card" style="display:grid;gap:1.25rem;align-content:start;">
+  return `<article class="card" style="display:grid;gap:1.15rem;align-content:start;">
   <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;">
     <div style="display:flex;align-items:center;gap:0.75rem;">
       <div class="icon-frame" style="padding:0.65rem;">${icon(iconName, 24, { drawn: true })}</div>
       <div>
         <h2 class="heading-md">${escHtml(d.productLabel)}</h2>
-        <div class="mono" style="font-size:0.84rem;color:var(--ink-65);">Version ${escHtml(d.version)} · Updated ${escHtml(d.publishedAt)}</div>
+        <div class="mono" style="font-size:0.84rem;color:var(--ink-65);">Version ${escHtml(d.version)} · ${escHtml(d.publishedAt)}</div>
       </div>
     </div>
     <span class="badge badge-mint">Windows</span>
   </div>
   <p style="font-size:0.95rem;">${escHtml(d.summary)}</p>
-  <div class="card-subtle" style="padding:0.9rem 1rem;font-size:0.88rem;color:var(--ink-80);line-height:1.55;">${escHtml(archSummary)}</div>
   <div style="display:flex;flex-wrap:wrap;gap:0.65rem;">
     <a href="${escHtml(d.downloadUrl)}" class="btn btn-primary icon-trigger">${icon('download-tray', 17)}<span>Download for Windows</span></a>
-    <a href="${escHtml(docsHref)}" class="btn btn-secondary icon-trigger">${icon('book-docs', 16)}<span>Setup Guide</span></a>
-    <a href="${escHtml(productHref)}" class="btn btn-ghost" style="color:var(--ink-80);font-weight:600;">Overview</a>
+    <a href="${escHtml(productHref)}" class="btn btn-secondary">Features</a>
   </div>
 </article>`;
 }
@@ -906,41 +876,22 @@ function buildDownloadsPage(pmsRel, imsRel, allReleases) {
     .join('\n');
 
   const bodyHtml = `<section class="section">
-  <div class="container" style="display:grid;gap:2.5rem;">
-    <div style="max-inline-size:44rem;display:grid;gap:0.75rem;">
-      <div class="eyebrow"><span class="accent-dot"></span><span>Get Started</span></div>
+  <div class="container" style="display:grid;gap:2.25rem;">
+    <div style="max-inline-size:40rem;display:grid;gap:0.75rem;">
+      <div class="eyebrow"><span class="accent-dot"></span><span>Downloads</span></div>
       <h1 class="display-xl" style="font-size:clamp(2.1rem,4.2vw,3.4rem);">Download Hosila for Windows</h1>
-      <p style="font-size:1.08rem;color:var(--ink-80);">Install directly on your reception or central store Windows computer and explore full features with a 14-day trial.</p>
-      <div class="badge" style="justify-self:start;" data-os-banner>${icon('check-circle', 15)}<span data-os-label>Ready for Windows · Compatible with Windows 10 &amp; Windows 11</span></div>
+      <p style="font-size:1.06rem;color:var(--ink-80);">Includes a 14-day free trial. Compatible with Windows 10 and Windows 11.</p>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,21rem),1fr));gap:1.5rem;">
-      ${pmsRel ? downloadCardHtml(pmsRel, 'Where to install: Run once on your main Reception Windows PC. Front desk, bar, and office staff then log in over hotel Wi-Fi.', '/docs/pms/lan-sync-setup/', '/products/pms') : ''}
-      ${imsRel ? downloadCardHtml(imsRel, 'Where to install: Run directly on your Central Store or Inventory PC for fast, completely offline stock management.', '/docs/ims/catalog-and-uom/', '/products/ims') : ''}
-    </div>
-
-    <div class="card" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1.25rem;align-items:start;">
-      <div>
-        <div class="mono" style="font-size:0.8rem;font-weight:700;color:var(--color-accent-ink);">STEP 1</div>
-        <h3 style="margin-block:0.25rem 0.35rem;font-size:1rem;">Download &amp; Run Setup</h3>
-        <p style="font-size:0.92rem;">Click download above, open the installer on your Windows computer, and follow the quick setup prompts.</p>
-      </div>
-      <div>
-        <div class="mono" style="font-size:0.8rem;font-weight:700;color:var(--color-accent-ink);">STEP 2</div>
-        <h3 style="margin-block:0.25rem 0.35rem;font-size:1rem;">Try Everything Free for 14 Days</h3>
-        <p style="font-size:0.92rem;">Set up your rooms, rates, departments, or store catalog and test daily workflows with your team.</p>
-      </div>
-      <div>
-        <div class="mono" style="font-size:0.8rem;font-weight:700;color:var(--color-accent-ink);">STEP 3</div>
-        <h3 style="margin-block:0.25rem 0.35rem;font-size:1rem;">Contact Sales to Pay &amp; Activate</h3>
-        <p style="font-size:0.92rem;">When you are ready, message us on <a href="/contact?intent=license" style="color:var(--color-accent-ink);font-weight:600;text-decoration:underline;">WhatsApp (09063814659)</a> or email <a href="mailto:Hosilateam@gmail.com" style="color:var(--color-accent-ink);font-weight:600;text-decoration:underline;">Hosilateam@gmail.com</a> to pay and receive your official license key.</p>
-      </div>
+      ${pmsRel ? downloadCardHtml(pmsRel, '/products/pms') : ''}
+      ${imsRel ? downloadCardHtml(imsRel, '/products/ims') : ''}
     </div>
 
     <div class="card card-mint-edge" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem;background-color:var(--mint-12);">
-      <div style="display:grid;gap:0.35rem;max-inline-size:38rem;">
-        <h2 class="heading-md">Already installed and ready for your license?</h2>
-        <p style="font-size:0.94rem;color:var(--ink-80);">Send your business name and Machine ID directly to Hosila Sales on WhatsApp to complete payment and activate your computer in minutes.</p>
+      <div style="display:grid;gap:0.3rem;max-inline-size:36rem;">
+        <h2 class="heading-md">Ready to activate your license?</h2>
+        <p style="font-size:0.94rem;color:var(--ink-80);">Message Hosila Sales on WhatsApp (<strong>09063814659</strong>) or email <strong>Hosilateam@gmail.com</strong>.</p>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:0.65rem;">
         <a href="/contact?intent=license" class="btn btn-primary icon-trigger">${icon('whatsapp', 17)}<span>Message Sales on WhatsApp</span></a>
@@ -1126,26 +1077,11 @@ function buildPricingPage() {
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1.5rem;align-items:stretch;">${cards}</div>
 
-    <div class="card" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1.25rem;align-items:start;">
-      <div style="display:flex;gap:0.85rem;align-items:flex-start;">
-        <span class="icon-frame">${icon('download-tray', 18)}</span>
-        <div><h3 style="font-size:1rem;">1. Download &amp; Try Free</h3><p style="font-size:0.9rem;margin-block-start:0.2rem;">Install Hosila on your Windows computer and evaluate full features for 14 days at zero cost.</p></div>
-      </div>
-      <div style="display:flex;gap:0.85rem;align-items:flex-start;">
-        <span class="icon-frame">${icon('whatsapp', 18)}</span>
-        <div><h3 style="font-size:1rem;">2. Contact Sales to Pay</h3><p style="font-size:0.9rem;margin-block-start:0.2rem;">Message Hosila Sales on WhatsApp (<strong>09063814659</strong>) or email <strong>Hosilateam@gmail.com</strong> with your Machine ID.</p></div>
-      </div>
-      <div style="display:flex;gap:0.85rem;align-items:flex-start;">
-        <span class="icon-frame">${icon('key-ed25519', 18)}</span>
-        <div><h3 style="font-size:1rem;">3. Activate Offline Instantly</h3><p style="font-size:0.9rem;margin-block-start:0.2rem;">Paste the official license key we send you into Hosila—your property or store is unlocked immediately.</p></div>
-      </div>
-    </div>
-
     <div class="card card-elevated" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem;">
-      <div style="display:grid;gap:0.35rem;max-inline-size:38rem;">
-        <div class="eyebrow"><span class="accent-dot"></span><span>Need Help Choosing?</span></div>
-        <h2 class="heading-md">Talk directly with Hosila Sales</h2>
-        <p style="font-size:0.95rem;">Tell us about your hotel, restaurant, or central store and we will help you pick the right plan, arrange payment, and guide your setup.</p>
+      <div style="display:grid;gap:0.35rem;max-inline-size:36rem;">
+        <div class="eyebrow"><span class="accent-dot"></span><span>Sales &amp; Support</span></div>
+        <h2 class="heading-md">Ready to get licensed?</h2>
+        <p style="font-size:0.95rem;">Message us on WhatsApp (<strong>09063814659</strong>) or email <strong>Hosilateam@gmail.com</strong>.</p>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
         <a href="/contact?intent=license" class="btn btn-primary btn-lg icon-trigger">${icon('whatsapp', 17)}<span>Open Sales Form</span></a>
@@ -1191,10 +1127,10 @@ function buildPricingPage() {
 function buildContactPage() {
   const bodyHtml = `<section class="section">
   <div class="container" style="display:grid;gap:2rem;max-inline-size:62rem;">
-    <div style="display:grid;gap:0.75rem;max-inline-size:44rem;">
+    <div style="display:grid;gap:0.65rem;max-inline-size:40rem;">
       <div class="eyebrow"><span class="accent-dot"></span><span>Sales &amp; Support</span></div>
-      <h1 class="display-xl" style="font-size:clamp(2rem,4vw,3.2rem);">Contact Hosila Sales &amp; Support</h1>
-      <p style="font-size:1.06rem;color:var(--ink-80);">Fill out the quick form below and click submit to open a pre-filled WhatsApp chat directly with our team—whether you are ready to pay for a license, need setup help, or have a question.</p>
+      <h1 class="display-xl" style="font-size:clamp(2rem,4vw,3.2rem);">Contact Hosila Sales</h1>
+      <p style="font-size:1.06rem;color:var(--ink-80);">Message us on WhatsApp or email to pay for a license, request support, or book a demo.</p>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem;">

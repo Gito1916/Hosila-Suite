@@ -156,7 +156,6 @@ export function renderHeader(canonicalPath) {
           </ul>
         </li>
         <li><a href="/downloads" class="nav-link"${navCurrent('/downloads')}>Downloads</a></li>
-        <li><a href="/docs/" class="nav-link">Guides</a></li>
         <li><a href="/releases" class="nav-link"${navCurrent('/releases')}>Updates</a></li>
         <li><a href="/pricing" class="nav-link"${navCurrent('/pricing')}>Pricing</a></li>
         <li><a href="/contact" class="nav-link"${navCurrent('/contact')}>Contact Sales</a></li>
@@ -164,7 +163,7 @@ export function renderHeader(canonicalPath) {
     </nav>
 
     <div class="header-actions">
-      <button type="button" class="theme-toggle icon-trigger" data-theme-toggle aria-label="Toggle color theme" title="Switch light or dark theme">
+      <button type="button" class="theme-toggle icon-trigger" data-theme-toggle aria-label="Toggle color theme" title="Switch dark or light theme">
         <span class="theme-icon-dark" aria-hidden="true">${icon('moon', 16)}</span>
         <span class="theme-icon-light" aria-hidden="true">${icon('sun', 16)}</span>
         <span class="theme-label-dark">Dark</span>
@@ -198,7 +197,6 @@ export function renderHeader(canonicalPath) {
         <li><a href="/products/pos" class="nav-link" style="width:100%;"${navCurrent('/products/pos')}>Hosila POS (Coming Soon)</a></li>
         <li><a href="/products/compare" class="nav-link" style="width:100%;"${navCurrent('/products/compare')}>Compare Products</a></li>
         <li><a href="/downloads" class="nav-link" style="width:100%;"${navCurrent('/downloads')}>Downloads</a></li>
-        <li><a href="/docs/" class="nav-link" style="width:100%;">User Guides</a></li>
         <li><a href="/releases" class="nav-link" style="width:100%;"${navCurrent('/releases')}>What&rsquo;s New</a></li>
         <li><a href="/pricing" class="nav-link" style="width:100%;"${navCurrent('/pricing')}>Pricing</a></li>
         <li><a href="/contact" class="nav-link" style="width:100%;"${navCurrent('/contact')}>Contact Sales</a></li>
@@ -240,9 +238,8 @@ export function renderFooter() {
       </div>
 
       <div style="display:grid;gap:0.6rem;align-content:start;">
-        <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-45);">Setup &amp; Updates</div>
-        <a href="/downloads" class="nav-link" style="padding:0.2rem 0;">Download Centre</a>
-        <a href="/docs/" class="nav-link" style="padding:0.2rem 0;">User Guides</a>
+        <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-45);">Resources</div>
+        <a href="/downloads" class="nav-link" style="padding:0.2rem 0;">Downloads</a>
         <a href="/releases" class="nav-link" style="padding:0.2rem 0;">What&rsquo;s New</a>
         <a href="/releases/rss.xml" class="nav-link" style="padding:0.2rem 0;">Update Feed</a>
       </div>
@@ -291,7 +288,7 @@ export function renderHtmlDocument({
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="color-scheme" content="dark" />
     <script>
       try {
         var saved = localStorage.getItem('color-scheme');
