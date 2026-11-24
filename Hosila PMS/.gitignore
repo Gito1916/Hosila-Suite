@@ -1,0 +1,12 @@
+node_modules/
+build/
+dist/
+dist-server/
+coverage/
+keys/
+hosila-keygen/
+*.pem
+.DS_Store
+*.log
+.env*
+!.env.example

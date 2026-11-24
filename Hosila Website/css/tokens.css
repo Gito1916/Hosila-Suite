@@ -1,0 +1,302 @@
+/* ==========================================================================
+   HOSILA DESIGN CONSTITUTION — HIGH-CONTRAST TOKENS & SYSTEM-FIRST DUAL THEME
+   Strict 3-color + 1 semantic danger discipline. WCAG AAA text contrast.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-mono-latin-600-normal.woff2') format('woff2');
+}
+
+:root {
+  color-scheme: light dark;
+
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Raw Theme Pairs */
+  --canvas-light: #FFFFFF;
+  --canvas-dark: #141416;
+  --surface-light: #FFFFFF;
+  --surface-dark: #1C1C1F;
+  --surface-elevated-light: #F5F5F7;
+  --surface-elevated-dark: #232327;
+  --ink-light: #111113;
+  --ink-dark: #F5F5F7;
+
+  /* Explicit WCAG AAA Neutral Text & Crisp Architectural Borders */
+  --ink-80-light: #222226;
+  --ink-80-dark: #E6E6EC;
+  --ink-65-light: #36363C;
+  --ink-65-dark: #CACAD4;
+  --ink-45-light: #52525B;
+  --ink-45-dark: #A4A4B0;
+
+  --ink-02-light: #F7F8FA;
+  --ink-02-dark: #18181C;
+  --ink-04-light: #EFF1F5;
+  --ink-04-dark: #212127;
+  --ink-06-light: rgba(17, 17, 19, 0.08);
+  --ink-06-dark: rgba(245, 245, 247, 0.09);
+  --ink-08-light: rgba(17, 17, 19, 0.12);
+  --ink-08-dark: rgba(245, 245, 247, 0.13);
+  --ink-10-light: rgba(17, 17, 19, 0.16);
+  --ink-10-dark: rgba(245, 245, 247, 0.17);
+  --ink-14-light: rgba(17, 17, 19, 0.25);
+  --ink-14-dark: rgba(245, 245, 247, 0.25);
+  --ink-20-light: rgba(17, 17, 19, 0.38);
+  --ink-20-dark: rgba(245, 245, 247, 0.38);
+
+  /* Accent & Danger */
+  --color-accent: #6AD4B0;
+  --color-accent-hover: #5AC9A3;
+  --color-accent-mark: #21C29C;
+  --color-accent-on-fill: #111113;
+  --accent-ink-light: #137556;
+  --accent-ink-dark: #6AD4B0;
+
+  --color-danger: #E05252;
+  --danger-ink-light: #B83232;
+  --danger-ink-dark: #FF7B7B;
+
+  /* Translucent Header Material */
+  --chrome-bg-light: rgba(255, 255, 255, 0.86);
+  --chrome-bg-dark: rgba(20, 20, 22, 0.86);
+
+  /* Default Light Tokens */
+  --color-canvas: var(--canvas-light);
+  --color-surface: var(--surface-light);
+  --color-surface-elevated: var(--surface-elevated-light);
+  --color-ink: var(--ink-light);
+  --ink-80: var(--ink-80-light);
+  --ink-65: var(--ink-65-light);
+  --ink-45: var(--ink-45-light);
+  --ink-02: var(--ink-02-light);
+  --ink-04: var(--ink-04-light);
+  --ink-06: var(--ink-06-light);
+  --ink-08: var(--ink-08-light);
+  --ink-10: var(--ink-10-light);
+  --ink-14: var(--ink-14-light);
+  --ink-20: var(--ink-20-light);
+  --color-accent-ink: var(--accent-ink-light);
+  --color-danger-ink: var(--danger-ink-light);
+  --color-chrome-bg: var(--chrome-bg-light);
+  --body-tracking: 0em;
+
+  @media (prefers-color-scheme: dark) {
+    --color-canvas: var(--canvas-dark);
+    --color-surface: var(--surface-dark);
+    --color-surface-elevated: var(--surface-elevated-dark);
+    --color-ink: var(--ink-dark);
+    --ink-80: var(--ink-80-dark);
+    --ink-65: var(--ink-65-dark);
+    --ink-45: var(--ink-45-dark);
+    --ink-02: var(--ink-02-dark);
+    --ink-04: var(--ink-04-dark);
+    --ink-06: var(--ink-06-dark);
+    --ink-08: var(--ink-08-dark);
+    --ink-10: var(--ink-10-dark);
+    --ink-14: var(--ink-14-dark);
+    --ink-20: var(--ink-20-dark);
+    --color-accent-ink: var(--accent-ink-dark);
+    --color-danger-ink: var(--danger-ink-dark);
+    --color-chrome-bg: var(--chrome-bg-dark);
+    --body-tracking: 0.005em;
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --color-canvas: light-dark(var(--canvas-light), var(--canvas-dark));
+    --color-surface: light-dark(var(--surface-light), var(--surface-dark));
+    --color-surface-elevated: light-dark(var(--surface-elevated-light), var(--surface-elevated-dark));
+    --color-ink: light-dark(var(--ink-light), var(--ink-dark));
+    --ink-80: light-dark(var(--ink-80-light), var(--ink-80-dark));
+    --ink-65: light-dark(var(--ink-65-light), var(--ink-65-dark));
+    --ink-45: light-dark(var(--ink-45-light), var(--ink-45-dark));
+    --ink-02: light-dark(var(--ink-02-light), var(--ink-02-dark));
+    --ink-04: light-dark(var(--ink-04-light), var(--ink-04-dark));
+    --ink-06: light-dark(var(--ink-06-light), var(--ink-06-dark));
+    --ink-08: light-dark(var(--ink-08-light), var(--ink-08-dark));
+    --ink-10: light-dark(var(--ink-10-light), var(--ink-10-dark));
+    --ink-14: light-dark(var(--ink-14-light), var(--ink-14-dark));
+    --ink-20: light-dark(var(--ink-20-light), var(--ink-20-dark));
+    --color-accent-ink: light-dark(var(--accent-ink-light), var(--accent-ink-dark));
+    --color-danger-ink: light-dark(var(--danger-ink-light), var(--danger-ink-dark));
+    --color-chrome-bg: light-dark(var(--chrome-bg-light), var(--chrome-bg-dark));
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+    --body-tracking: 0.005em;
+    --color-canvas: var(--canvas-dark);
+    --color-surface: var(--surface-dark);
+    --color-surface-elevated: var(--surface-elevated-dark);
+    --color-ink: var(--ink-dark);
+    --ink-80: var(--ink-80-dark);
+    --ink-65: var(--ink-65-dark);
+    --ink-45: var(--ink-45-dark);
+    --ink-02: var(--ink-02-dark);
+    --ink-04: var(--ink-04-dark);
+    --ink-06: var(--ink-06-dark);
+    --ink-08: var(--ink-08-dark);
+    --ink-10: var(--ink-10-dark);
+    --ink-14: var(--ink-14-dark);
+    --ink-20: var(--ink-20-dark);
+    --color-accent-ink: var(--accent-ink-dark);
+    --color-danger-ink: var(--danger-ink-dark);
+    --color-chrome-bg: var(--chrome-bg-dark);
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+    --body-tracking: 0em;
+    --color-canvas: var(--canvas-light);
+    --color-surface: var(--surface-light);
+    --color-surface-elevated: var(--surface-elevated-light);
+    --color-ink: var(--ink-light);
+    --ink-80: var(--ink-80-light);
+    --ink-65: var(--ink-65-light);
+    --ink-45: var(--ink-45-light);
+    --ink-02: var(--ink-02-light);
+    --ink-04: var(--ink-04-light);
+    --ink-06: var(--ink-06-light);
+    --ink-08: var(--ink-08-light);
+    --ink-10: var(--ink-10-light);
+    --ink-14: var(--ink-14-light);
+    --ink-20: var(--ink-20-light);
+    --color-accent-ink: var(--accent-ink-light);
+    --color-danger-ink: var(--danger-ink-light);
+    --color-chrome-bg: var(--chrome-bg-light);
+  }
+
+  /* Accent & Danger surface tints (never using oklch) */
+  --mint-12: color-mix(in srgb, var(--color-accent) 16%, transparent);
+  --mint-20: color-mix(in srgb, var(--color-accent) 24%, transparent);
+  --mint-30: color-mix(in srgb, var(--color-accent) 34%, transparent);
+  --mint-40: color-mix(in srgb, var(--color-accent) 48%, transparent);
+
+  --danger-07: color-mix(in srgb, var(--color-danger) 10%, transparent);
+  --danger-30: color-mix(in srgb, var(--color-danger) 40%, transparent);
+
+  /* Radii & Layout */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --container-max: 76rem;
+  --header-height: 4.5rem;
+
+  /* Native UI Alignment (NEVER transition scrollbar-color) */
+  accent-color: var(--color-accent-ink);
+  --scrollbar-track: #F2F2F7;
+  --scrollbar-thumb: #8E8E98;
+
+  @media (prefers-color-scheme: dark) {
+    --scrollbar-track: #18181B;
+    --scrollbar-thumb: #62626D;
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --scrollbar-track: light-dark(#F2F2F7, #18181B);
+    --scrollbar-thumb: light-dark(#8E8E98, #62626D);
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    --scrollbar-track: #18181B;
+    --scrollbar-thumb: #62626D;
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    --scrollbar-track: #F2F2F7;
+    --scrollbar-thumb: #8E8E98;
+  }
+
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --color-chrome-bg: var(--color-canvas);
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --color-canvas: Canvas;
+    --color-surface: Canvas;
+    --color-surface-elevated: Canvas;
+    --color-ink: CanvasText;
+    --ink-80: CanvasText;
+    --ink-65: CanvasText;
+    --ink-45: CanvasText;
+    --color-accent: Highlight;
+    --color-accent-ink: Highlight;
+    --color-accent-on-fill: HighlightText;
+    --ink-10: CanvasText;
+    --ink-14: CanvasText;
+  }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hosila Software — Product Updates</title>
+    <link>https://hosila.com/releases</link>
+    <atom:link href="https://hosila.com/releases/rss.xml" rel="self" type="application/rss+xml" />
+    <description>New hospitality features and updates for Hosila PMS and Hosila IMS.</description>
+    <language>en-us</language>
+    <item>
+      <title>Hosila IMS v1.0.0</title>
+      <link>https://hosila.com/releases#ims-1.0.0</link>
+      <guid isPermaLink="true">https://hosila.com/releases#ims-1.0.0</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+      <description>First full commercial release of Hosila IMS—dependable offline inventory control for central stores, kitchens, and bars with crate-to-bottle conversions, automatic stock valuation, and market Excel list import.</description>
+    </item>
+    <item>
+      <title>Hosila PMS v1.0.0</title>
+      <link>https://hosila.com/releases#pms-1.0.0</link>
+      <guid isPermaLink="true">https://hosila.com/releases#pms-1.0.0</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+      <description>First full commercial release of Hosila PMS with fast room check-ins, multi-desk hotel Wi-Fi connection, corporate split bills, integrated hotel restaurant billing, and daily accounts.</description>
+    </item>
+    <item>
+      <title>Hosila IMS v0.9.2</title>
+      <link>https://hosila.com/releases#ims-0.9.2</link>
+      <guid isPermaLink="true">https://hosila.com/releases#ims-0.9.2</guid>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Added dedicated Protein store section grouping, shared multi-department items, and formatted Weekly Stock Sheet Excel exports.</description>
+    </item>
+    <item>
+      <title>Hosila PMS v0.9.5</title>
+      <link>https://hosila.com/releases#pms-0.9.5</link>
+      <guid isPermaLink="true">https://hosila.com/releases#pms-0.9.5</guid>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Added clear staff permission locks, reliable hotel logo display in guest emails, and shift handover cash reconciliation.</description>
+    </item>
+  </channel>
+</rss>

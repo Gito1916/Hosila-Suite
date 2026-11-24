@@ -1,0 +1,8 @@
+/index.html / 301
+/activate /contact 301
+/activate/ /contact 301
+/sitemap-index.xml /sitemap.xml 301
+
+# Cloudflare R2 installer download redirects (replace releases.hosila.com with your R2 custom domain)
+/api/download/hosila-pms https://releases.hosila.com/hosila-pms/1.0.0/Hosila-PMS-Setup.exe 302
+/api/download/hosila-ims https://releases.hosila.com/hosila-ims/1.0.0/Hosila-IMS-Setup.exe 302

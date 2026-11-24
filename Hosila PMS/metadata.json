@@ -1,0 +1,6 @@
+{
+  "name": "Hosila PMS",
+  "description": "Lightweight offline-first LAN hotel management system with front desk operations, guest directory, guest folio, toggleable restaurant POS, financial and occupancy reporting, and Resend email notifications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

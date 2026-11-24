@@ -1,0 +1,32 @@
+[package]
+name = "hosila-ims"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[lib]
+name = "hosila_ims_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+test = false
+doctest = false
+
+[[bin]]
+name = "hosila-ims"
+path = "src/main.rs"
+test = false
+
+[build-dependencies]
+tauri-build = { workspace = true }
+
+[dependencies]
+hosila-core = { path = "../crates/hosila-core" }
+base64.workspace = true
+tauri.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+specta.workspace = true
+specta-typescript.workspace = true
+tauri-specta.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true

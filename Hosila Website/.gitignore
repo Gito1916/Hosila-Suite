@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+data/
+.env
+*.pem
+legacy-cloud-pms/node_modules/
+legacy-cloud-pms/dist/

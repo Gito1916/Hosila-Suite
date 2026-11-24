@@ -1,0 +1,122 @@
+/* ==========================================================================
+   ASTRO STARLIGHT — HOSILA HIGH-CONTRAST OVERRIDES
+   Zero gradients, crisp typography, WCAG AAA text readability, local fonts.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/plus-jakarta-sans-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-mono-latin-600-normal.woff2') format('woff2');
+}
+
+:root {
+  --sl-font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
+  --sl-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Dark mode high-contrast tokens */
+  --sl-color-white: #F5F5F7;
+  --sl-color-gray-1: #EAEAF0;
+  --sl-color-gray-2: #D0D0DA;
+  --sl-color-gray-3: #A6A6B2;
+  --sl-color-gray-4: #5E5E68;
+  --sl-color-gray-5: #323239;
+  --sl-color-gray-6: #1E1E22;
+  --sl-color-black: #141416;
+  --sl-color-text: #E6E6EC;
+
+  --sl-color-accent-low: rgba(106, 212, 176, 0.16);
+  --sl-color-accent: #6AD4B0;
+  --sl-color-accent-high: #6AD4B0;
+  --sl-color-text-accent: #6AD4B0;
+  --sl-color-bg: #141416;
+  --sl-color-bg-nav: #141416;
+  --sl-color-bg-sidebar: #18181C;
+  --sl-color-hairline-light: rgba(245, 245, 247, 0.16);
+}
+
+:root[data-theme='light'] {
+  --sl-color-white: #111113;
+  --sl-color-gray-1: #222226;
+  --sl-color-gray-2: #36363C;
+  --sl-color-gray-3: #52525B;
+  --sl-color-gray-4: #8E8E98;
+  --sl-color-gray-5: #D4D4DC;
+  --sl-color-gray-6: #F5F5F7;
+  --sl-color-black: #FFFFFF;
+  --sl-color-text: #222226;
+
+  --sl-color-accent-low: rgba(106, 212, 176, 0.22);
+  --sl-color-accent: #6AD4B0;
+  --sl-color-accent-high: #137556;
+  --sl-color-text-accent: #137556;
+  --sl-color-bg: #FFFFFF;
+  --sl-color-bg-nav: #FFFFFF;
+  --sl-color-bg-sidebar: #F7F8FA;
+  --sl-color-hairline-light: rgba(17, 17, 19, 0.16);
+}
+
+.sl-markdown-content {
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.sl-link-button.primary,
+a[aria-current='page'] {
+  color: #111113 !important;
+  background-color: #6AD4B0 !important;
+  font-weight: 700;
+}
+
+.hero {
+  background: none !important;
+}

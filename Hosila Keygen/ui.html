@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" id="themeColorMeta" content="#ffffff" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='10,40 30,27 30,73 10,86' fill='%236AD4B0'/%3E%3Cpolygon points='40,16 60,3 60,46 40,46' fill='%236AD4B0'/%3E%3Cpolygon points='40,54 60,54 60,84 40,97' fill='%236AD4B0'/%3E%3Cpolygon points='70,27 90,14 90,60 70,73' fill='%236AD4B0'/%3E%3C/svg%3E"
+    />
+    <title>Hosila KeyGen</title>
+    <style>
+      :root {
+        --canvas: #ffffff;
+        --surface: #ffffff;
+        --ink: #1d1d1f;
+        --muted: rgba(29, 29, 31, 0.55);
+        --border: rgba(29, 29, 31, 0.14);
+        --subtle: rgba(29, 29, 31, 0.035);
+        --accent: #6ad4b0;
+        --accent-ink: #1e8665;
+        --danger: #e05252;
+        --danger-ink: #c83e3e;
+      }
+      html.dark {
+        --canvas: #141416;
+        --surface: #1c1c1f;
+        --ink: #f2f2f7;
+        --muted: rgba(242, 242, 247, 0.55);
+        --border: rgba(242, 242, 247, 0.14);
+        --subtle: rgba(242, 242, 247, 0.045);
+        --accent-ink: #6ad4b0;
+        --danger-ink: #f27272;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--canvas);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+      .wrap {
+        max-width: 390px;
+        margin: 0 auto;
+        padding: 14px;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 12px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: -0.01em;
+      }
+      .brand span.mint { color: var(--accent-ink); }
+      .top-actions { display: flex; gap: 6px; }
+      .icon-btn {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--muted);
+        border-radius: 8px;
+        padding: 4px 8px;
+        font-size: 11px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .icon-btn:hover { color: var(--ink); border-color: var(--ink); }
+      .seg {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        background: var(--subtle);
+        padding: 3px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .seg button {
+        border: none;
+        background: transparent;
+        color: var(--muted);
+        padding: 6px 8px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .seg button.active {
+        background: var(--surface);
+        color: var(--ink);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      }
+      .field { margin-bottom: 9px; }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      label {
+        display: block;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+      input, select, textarea {
+        width: 100%;
+        border: 1px solid var(--border);
+        background: var(--canvas);
+        color: var(--ink);
+        border-radius: 10px;
+        padding: 7px 10px;
+        font-size: 12px;
+        font-family: inherit;
+      }
+      input.mono, textarea.mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      .chips {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+      }
+      .chip {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--muted);
+        border-radius: 8px;
+        padding: 6px 4px;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+      }
+      .chip.active {
+        border-color: var(--accent);
+        background: rgba(106, 212, 176, 0.16);
+        color: var(--ink);
+      }
+      .primary-btn {
+        width: 100%;
+        border: none;
+        background: var(--accent);
+        color: #1d1d1f;
+        border-radius: 10px;
+        padding: 9px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 4px;
+      }
+      .primary-btn:hover { opacity: 0.9; }
+      .err {
+        border: 1px solid rgba(224, 82, 82, 0.4);
+        background: rgba(224, 82, 82, 0.08);
+        color: var(--danger-ink);
+        border-radius: 10px;
+        padding: 7px 10px;
+        font-size: 11px;
+        margin-bottom: 9px;
+        display: none;
+      }
+      .result {
+        margin-top: 12px;
+        border: 1px solid rgba(106, 212, 176, 0.55);
+        background: rgba(106, 212, 176, 0.08);
+        border-radius: 12px;
+        padding: 10px;
+        display: none;
+      }
+      .result-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .copy-btn {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--ink);
+        border-radius: 7px;
+        padding: 4px 9px;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .result textarea {
+        font-size: 10.5px;
+        resize: none;
+        height: 68px;
+        background: var(--surface);
+      }
+      .meta {
+        margin-top: 6px;
+        font-size: 10.5px;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      .history {
+        display: none;
+        margin-top: 10px;
+        max-height: 440px;
+        overflow-y: auto;
+      }
+      .hist-item {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 8px 10px;
+        margin-bottom: 7px;
+        background: var(--surface);
+      }
+      .hist-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11.5px;
+        font-weight: 600;
+      }
+      .hist-sub {
+        font-size: 10.5px;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        margin-top: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">
+          <svg width="20" height="20" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <polygon points="10,40 30,27 30,73 10,86" fill="#6AD4B0" />
+            <polygon points="40,16 60,3 60,46 40,46" fill="#6AD4B0" />
+            <polygon points="40,54 60,54 60,84 40,97" fill="#6AD4B0" />
+            <polygon points="70,27 90,14 90,60 70,73" fill="#6AD4B0" />
+          </svg>
+          <span><span class="mint">Hosila</span> KeyGen</span>
+        </div>
+        <div class="top-actions">
+          <button type="button" class="icon-btn" id="historyBtn">History</button>
+          <button type="button" class="icon-btn" id="themeBtn">Dark</button>
+        </div>
+      </div>
+
+      <div id="generatorView">
+        <div class="seg">
+          <button type="button" id="modeCommercial" class="active">Customer Key</button>
+          <button type="button" id="modeMaster">Master Key</button>
+        </div>
+
+        <div id="errBox" class="err"></div>
+
+        <div class="field">
+          <label for="product">Hosila Product</label>
+          <select id="product">
+            <option value="hosila-pms">Hosila PMS (Hotel Management)</option>
+            <option value="hosila-ims">Hosila IMS (Inventory Management)</option>
+            <option value="hosila-pos">Hosila POS (Point of Sale)</option>
+            <option value="*" disabled>All Hosila Products (Master Only)</option>
+          </select>
+        </div>
+
+        <div class="field" id="machineField">
+          <label for="machineId">Customer Host PC Machine ID</label>
+          <input id="machineId" class="mono" placeholder="HSLA-8F3A-92C1-4D0E" autocomplete="off" />
+        </div>
+
+        <div class="field">
+          <label for="customerName">Business / Hotel Name</label>
+          <input id="customerName" placeholder="e.g. Grand Palms Hotel" autocomplete="off" />
+        </div>
+
+        <div class="field">
+          <label>License Duration (Full Access)</label>
+          <div class="chips">
+            <button type="button" class="chip" data-dur="30">Monthly</button>
+            <button type="button" class="chip" data-dur="365">Yearly</button>
+            <button type="button" class="chip active" data-dur="lifetime">Lifetime</button>
+            <button type="button" class="chip" data-dur="custom">Custom</button>
+          </div>
+        </div>
+
+        <div class="field" id="customDaysWrap" style="display: none">
+          <label for="customDays">Custom Duration (Days)</label>
+          <input id="customDays" type="number" min="1" value="90" class="mono" />
+        </div>
+
+        <button type="button" class="primary-btn" id="genBtn">Generate Activation Key</button>
+
+        <div class="result" id="resultBox">
+          <div class="result-head">
+            <span id="resultLabel">Signed Activation Key</span>
+            <button type="button" class="copy-btn" id="copyBtn">Copy Key</button>
+          </div>
+          <textarea id="keyOut" class="mono" readonly></textarea>
+          <div class="meta" id="resultMeta"></div>
+        </div>
+      </div>
+
+      <div id="historyView" class="history"></div>
+    </div>
+
+    <script>
+      // Enforce compact sticky-note dimensions when opened in app mode
+      try {
+        if (window.outerWidth > 460 || window.outerHeight > 720) {
+          window.resizeTo(405, 635);
+        }
+      } catch {}
+
+      let keyType = 'commercial';
+      let durMode = 'lifetime';
+      let showingHistory = false;
+
+      const el = (id) => document.getElementById(id);
+
+      el('themeBtn').onclick = () => {
+        const dark = document.documentElement.classList.toggle('dark');
+        el('themeBtn').textContent = dark ? 'Light' : 'Dark';
+        const meta = document.getElementById('themeColorMeta');
+        if (meta) meta.setAttribute('content', dark ? '#141416' : '#ffffff');
+      };
+
+      el('historyBtn').onclick = async () => {
+        showingHistory = !showingHistory;
+        el('generatorView').style.display = showingHistory ? 'none' : 'block';
+        el('historyView').style.display = showingHistory ? 'block' : 'none';
+        el('historyBtn').textContent = showingHistory ? 'Back' : 'History';
+        if (showingHistory) await loadHistory();
+      };
+
+      function setType(t) {
+        keyType = t;
+        el('modeCommercial').classList.toggle('active', t === 'commercial');
+        el('modeMaster').classList.toggle('active', t === 'master');
+        const allOpt = el('product').querySelector('option[value="*"]');
+        allOpt.disabled = t !== 'master';
+        if (t === 'master') {
+          el('product').value = '*';
+          el('machineId').placeholder = '* (Any PC — optional)';
+          el('customerName').placeholder = 'Hosila Master License';
+        } else {
+          if (el('product').value === '*') el('product').value = 'hosila-pms';
+          el('machineId').placeholder = 'HSLA-8F3A-92C1-4D0E';
+          el('customerName').placeholder = 'e.g. Grand Palms Hotel';
+        }
+      }
+
+      el('modeCommercial').onclick = () => setType('commercial');
+      el('modeMaster').onclick = () => setType('master');
+
+      document.querySelectorAll('.chip').forEach((btn) => {
+        btn.onclick = () => {
+          document.querySelectorAll('.chip').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          durMode = btn.dataset.dur;
+          el('customDaysWrap').style.display = durMode === 'custom' ? 'block' : 'none';
+        };
+      });
+
+      el('genBtn').onclick = async () => {
+        el('errBox').style.display = 'none';
+        const days = durMode === 'custom' ? Number(el('customDays').value) : durMode === 'lifetime' ? 0 : Number(durMode);
+        try {
+          const res = await fetch('/api/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              type: keyType,
+              product: el('product').value,
+              machineId: el('machineId').value.trim(),
+              customerName: el('customerName').value.trim(),
+              durationMode: durMode === 'lifetime' ? 'lifetime' : 'days',
+              days,
+            }),
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            el('errBox').textContent = data.error || 'Could not generate key.';
+            el('errBox').style.display = 'block';
+            return;
+          }
+          el('keyOut').value = data.key;
+          el('resultLabel').textContent = `${data.record.id} · ${data.record.durationLabel}`;
+          el('resultMeta').textContent = `${data.record.product.toUpperCase()} | ${data.record.machineId} | ${data.record.expiresAt ? 'Exp ' + data.record.expiresAt.slice(0, 10) : 'LIFETIME'}`;
+          el('resultBox').style.display = 'block';
+        } catch {
+          el('errBox').textContent = 'KeyGen local server unreachable.';
+          el('errBox').style.display = 'block';
+        }
+      };
+
+      el('copyBtn').onclick = async () => {
+        await navigator.clipboard.writeText(el('keyOut').value);
+        el('copyBtn').textContent = 'Copied!';
+        setTimeout(() => (el('copyBtn').textContent = 'Copy Key'), 1500);
+      };
+
+      async function loadHistory() {
+        const res = await fetch('/api/history');
+        const data = await res.json();
+        const box = el('historyView');
+        if (!data.history || data.history.length === 0) {
+          box.innerHTML = '<div style="text-align:center;color:var(--muted);padding:24px 0;">No keys generated yet.</div>';
+          return;
+        }
+        box.innerHTML = '';
+        data.history.forEach((item) => {
+          const div = document.createElement('div');
+          div.className = 'hist-item';
+          div.innerHTML = `
+            <div class="hist-top">
+              <span>${item.customerName}</span>
+              <button type="button" class="copy-btn">Copy</button>
+            </div>
+            <div class="hist-sub">${item.id} · ${item.product.toUpperCase()} · ${item.durationLabel}</div>
+            <div class="hist-sub">${item.machineId}</div>
+          `;
+          div.querySelector('button').onclick = async (e) => {
+            await navigator.clipboard.writeText(item.activationKey);
+            e.target.textContent = 'Copied';
+            setTimeout(() => (e.target.textContent = 'Copy'), 1200);
+          };
+          box.appendChild(div);
+        });
+      }
+    </script>
+  </body>
+</html>
+

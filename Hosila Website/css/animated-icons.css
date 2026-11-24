@@ -1,0 +1,202 @@
+/* ==========================================================================
+   LIVELY ANIMATED LINE ICONS
+   Active by default; pauses cleanly when :root[data-motion="paused"].
+   ========================================================================== */
+
+.hosila-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+.hosila-icon svg {
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: visible;
+}
+
+:root:not([data-motion="paused"]) .hosila-icon [data-draw] {
+  stroke-dasharray: 64;
+  stroke-dashoffset: 64;
+  transition: stroke-dashoffset 680ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .is-in-view .hosila-icon [data-draw],
+:root:not([data-motion="paused"]) .hosila-icon.icon-drawn [data-draw] {
+  stroke-dashoffset: 0;
+}
+
+:root:not([data-motion="paused"]) .hosila-icon[data-name="lan-sync"] .wave-1 {
+  animation: icon-wave 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+:root:not([data-motion="paused"]) .hosila-icon[data-name="lan-sync"] .wave-2 {
+  animation: icon-wave 2.4s ease-in-out 0.45s infinite;
+  transform-origin: center;
+}
+
+:root:not([data-motion="paused"]) .hosila-icon[data-name="night-audit"] .moon-body {
+  animation: icon-float-tilt 4.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="download-tray"] .tray-arrow,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="download-tray"]:hover .tray-arrow {
+  animation: icon-drop-bounce 520ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="arrow-right"] .arrow-shaft,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="arrow-right"]:hover .arrow-shaft {
+  transform: translateX(3px);
+}
+
+.hosila-icon[data-name="arrow-right"] .arrow-shaft {
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="key-ed25519"] .key-body,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="key-ed25519"]:hover .key-body {
+  transform: rotate(-16deg);
+}
+
+.hosila-icon[data-name="key-ed25519"] .key-body {
+  transform-origin: 35% 50%;
+  transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="shield-audit"] .shield-check,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="shield-audit"]:hover .shield-check {
+  animation: icon-check-pop 420ms cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center;
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="uom-scale"] .scale-beam,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="uom-scale"]:hover .scale-beam {
+  animation: icon-scale-tilt 650ms cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: 12px 7px;
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="excel-parser"] .row-1,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="excel-parser"]:hover .row-1 {
+  transform: translateX(2px);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="excel-parser"] .row-2,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="excel-parser"]:hover .row-2 {
+  transform: translateX(-2px);
+}
+
+.hosila-icon[data-name="excel-parser"] .row-1,
+.hosila-icon[data-name="excel-parser"] .row-2 {
+  transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="sun"] .sun-rays,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="sun"]:hover .sun-rays {
+  transform: rotate(45deg);
+}
+
+.hosila-icon[data-name="sun"] .sun-rays {
+  transform-origin: center;
+  transition: transform 350ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="swap-pc"] .swap-arrows,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="swap-pc"]:hover .swap-arrows {
+  transform: scale(1.1);
+}
+
+.hosila-icon[data-name="swap-pc"] .swap-arrows {
+  transform-origin: center;
+  transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="offline-db"] .db-ring-2,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="offline-db"]:hover .db-ring-2 {
+  transform: translateY(-1.5px);
+}
+
+.hosila-icon[data-name="offline-db"] .db-ring-2 {
+  transition: transform 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="lock-rbac"] .lock-shackle,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="lock-rbac"]:hover .lock-shackle {
+  transform: translateY(-1.5px);
+}
+
+.hosila-icon[data-name="lock-rbac"] .lock-shackle {
+  transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="room-board"] .bar-active,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="room-board"]:hover .bar-active {
+  transform: scaleY(1.25);
+}
+
+.hosila-icon[data-name="room-board"] .bar-active {
+  transform-origin: center;
+  transition: transform 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="tape-chart"] .tape-bar,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="tape-chart"]:hover .tape-bar {
+  transform: translateX(2.5px);
+}
+
+.hosila-icon[data-name="tape-chart"] .tape-bar {
+  transition: transform 240ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="book-docs"] .book-leaf,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="book-docs"]:hover .book-leaf {
+  transform: rotateY(-12deg);
+}
+
+.hosila-icon[data-name="book-docs"] .book-leaf {
+  transform-origin: center;
+  transition: transform 260ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root:not([data-motion="paused"]) .icon-trigger:hover .hosila-icon[data-name="sparkles-release"] .spark-top,
+:root:not([data-motion="paused"]) .hosila-icon[data-name="sparkles-release"]:hover .spark-top {
+  transform: rotate(30deg) scale(1.14);
+}
+
+.hosila-icon[data-name="sparkles-release"] .spark-top {
+  transform-origin: center;
+  transition: transform 280ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes icon-wave {
+  0%, 100% { opacity: 0.35; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+@keyframes icon-drop-bounce {
+  0% { transform: translateY(0); }
+  45% { transform: translateY(3px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes icon-check-pop {
+  0% { transform: scale(0.85); }
+  55% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+@keyframes icon-scale-tilt {
+  0% { transform: rotate(0deg); }
+  35% { transform: rotate(-10deg); }
+  70% { transform: rotate(7deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes icon-float-tilt {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(6deg); }
+}
+

@@ -1,0 +1,43 @@
+# Secrets, private signing keys & environment files (NEVER commit)
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+
+# Databases & local runtime state
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+Hosila PMS/data/
+Hosila Website/data/
+
+# Dependencies & build caches
+node_modules/
+**/node_modules/
+**/target/
+**/dist/
+**/.astro/
+.docs-dist/
+.vite/
+.turbo/
+npm-debug.log*
+yarn-error.log*
+
+# Compiled installers, packaged runtimes & large release artifacts (host on Cloudflare R2)
+Hosila Releases/
+Hosila PMS/release/
+*.exe
+*.msi
+*.dmg
+*.AppImage
+*.zip
+*.7z
+
+# OS & editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
