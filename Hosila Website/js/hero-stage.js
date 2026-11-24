@@ -21,7 +21,7 @@ export function initHeroStage() {
   let userPaused = false;
   try {
     userPaused = localStorage.getItem('hosila-motion') === 'paused';
-  } catch {}
+  } catch { }
   document.documentElement.dataset.motion = userPaused ? 'paused' : 'playing';
 
   let offScreenPaused = false;
@@ -36,10 +36,11 @@ export function initHeroStage() {
     rotX: 0.08,
     rotY: -0.18,
     paused: userPaused,
+    tiltActive: false,
   };
   window.__hosilaHeroDebug = debugState;
 
-  // Pointer state shared between Antigravity Field and 3D Emblem
+  // Pointer & mobile gyroscope state shared between Antigravity Field and 3D Emblem
   const pointer = {
     x: 0.72,
     y: 0.48,
@@ -48,11 +49,58 @@ export function initHeroStage() {
     vx: 0,
     vy: 0,
     active: false,
+    tiltActive: false,
   };
+
+  const isMobileTiltDevice =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(hover: none) and (pointer: coarse)').matches &&
+    'DeviceOrientationEvent' in window;
+
+  if (isMobileTiltDevice) {
+    let baseBeta = null;
+    let tiltListening = false;
+
+    const onDeviceOrientation = (e) => {
+      if (userPaused || e.gamma == null || e.beta == null) return;
+      if (baseBeta === null) {
+        baseBeta = Math.max(15, Math.min(75, e.beta));
+      }
+      const nx = Math.max(0.05, Math.min(0.95, 0.5 + e.gamma / 64));
+      const ny = Math.max(0.05, Math.min(0.95, 0.5 + (e.beta - baseBeta) / 56));
+      pointer.targetX = nx;
+      pointer.targetY = ny;
+      pointer.active = true;
+      pointer.tiltActive = true;
+      debugState.tiltActive = true;
+    };
+
+    const startTiltListener = () => {
+      if (tiltListening) return;
+      tiltListening = true;
+      window.addEventListener('deviceorientation', onDeviceOrientation, { passive: true });
+    };
+
+    startTiltListener();
+
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      const requestTiltPermission = () => {
+        DeviceOrientationEvent.requestPermission()
+          .then((state) => {
+            if (state === 'granted') startTiltListener();
+          })
+          .catch(() => {
+            window.addEventListener('touchend', requestTiltPermission, { once: true, passive: true });
+          });
+      };
+      requestTiltPermission();
+    }
+  }
 
   stage.addEventListener(
     'pointermove',
     (e) => {
+      if (pointer.tiltActive && e.pointerType === 'touch') return;
       const rect = stage.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
       pointer.targetX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
@@ -65,7 +113,7 @@ export function initHeroStage() {
   stage.addEventListener(
     'pointerleave',
     () => {
-      pointer.active = false;
+      if (!pointer.tiltActive) pointer.active = false;
     },
     { passive: true }
   );
@@ -374,8 +422,10 @@ export function initHeroStage() {
       }
 
       function renderFrame(nowSec, px, py) {
-        const targetRotY = (px - 0.5) * 0.48 + Math.sin(nowSec * 0.6) * 0.09;
-        const targetRotX = (py - 0.5) * -0.32 + Math.cos(nowSec * 0.45) * 0.06;
+        const yGain = pointer.tiltActive ? 0.72 : 0.48;
+        const xGain = pointer.tiltActive ? -0.5 : -0.32;
+        const targetRotY = (px - 0.5) * yGain + Math.sin(nowSec * 0.6) * 0.09;
+        const targetRotX = (py - 0.5) * xGain + Math.cos(nowSec * 0.45) * 0.06;
 
         const stiffness = 0.13;
         const damping = 0.72;
@@ -498,7 +548,7 @@ export function initHeroStage() {
     document.documentElement.dataset.motion = userPaused ? 'paused' : 'playing';
     try {
       localStorage.setItem('hosila-motion', userPaused ? 'paused' : 'playing');
-    } catch {}
+    } catch { }
     syncPauseButtonUI();
 
     if (userPaused) {
