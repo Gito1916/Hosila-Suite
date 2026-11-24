@@ -23,6 +23,16 @@
   "redirects": [
     { "source": "/activate", "destination": "/contact", "permanent": true },
     { "source": "/activate/", "destination": "/contact", "permanent": true },
-    { "source": "/sitemap-index.xml", "destination": "/sitemap.xml", "permanent": true }
+    { "source": "/sitemap-index.xml", "destination": "/sitemap.xml", "permanent": true },
+    {
+      "source": "/api/download/hosila-pms",
+      "destination": "https://sd6k88hbtarxlrqt.public.blob.vercel-storage.com/hosila-pms/1.0.0/Hosila-PMS-Setup.exe?download=1",
+      "permanent": false
+    },
+    {
+      "source": "/api/download/hosila-ims",
+      "destination": "https://sd6k88hbtarxlrqt.public.blob.vercel-storage.com/hosila-ims/1.0.0/Hosila-IMS-Setup.exe?download=1",
+      "permanent": false
+    }
   ]
 }
