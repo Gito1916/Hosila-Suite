@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#141416" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Hosila Keys" />
+    <title>Hosila Keys</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #141416;
+        --surface: #1c1c1f;
+        --elevated: #232327;
+        --ink: #f5f5f7;
+        --ink-2: #d4d4dc;
+        --muted: #9a9aa6;
+        --border: rgba(245, 245, 247, 0.14);
+        --mint: #21c29c;
+        --mint-soft: rgba(33, 194, 156, 0.14);
+        --mint-border: rgba(33, 194, 156, 0.42);
+        --danger: #f87171;
+        --radius: 14px;
+        --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
+      html, body {
+        margin: 0;
+        min-height: 100dvh;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font);
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        padding: max(1rem, env(safe-area-inset-top)) 1rem max(2rem, env(safe-area-inset-bottom));
+        display: flex;
+        justify-content: center;
+      }
+      .shell {
+        width: 100%;
+        max-width: 460px;
+        display: grid;
+        gap: 1rem;
+        align-content: start;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.25rem 0.15rem 0.4rem;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: -0.02em;
+      }
+      .brand img { width: 26px; height: 26px; display: block; }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.15rem;
+        display: grid;
+        gap: 0.95rem;
+      }
+      .card-mint {
+        border-color: var(--mint-border);
+        background: linear-gradient(180deg, rgba(33, 194, 156, 0.09), var(--surface) 60%);
+      }
+      h1 { margin: 0; font-size: 1.35rem; letter-spacing: -0.02em; }
+      h2 { margin: 0; font-size: 1rem; letter-spacing: -0.01em; }
+      p { margin: 0; font-size: 0.92rem; color: var(--ink-2); line-height: 1.5; }
+      .field { display: grid; gap: 0.35rem; }
+      label { font-size: 0.84rem; font-weight: 600; color: var(--ink-2); }
+      .input {
+        width: 100%;
+        min-height: 48px;
+        padding: 0.72rem 0.9rem;
+        border-radius: 11px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        color: var(--ink);
+        font: inherit;
+        font-size: 16px;
+        outline: none;
+      }
+      .input:focus {
+        border-color: var(--mint);
+        box-shadow: 0 0 0 2px rgba(33, 194, 156, 0.25);
+      }
+      .mono { font-family: var(--mono); }
+      .seg {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.35rem;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        padding: 0.28rem;
+      }
+      .seg-4 { grid-template-columns: repeat(4, 1fr); }
+      .seg-2 { grid-template-columns: repeat(2, 1fr); }
+      .seg button {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 600;
+        min-height: 40px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 120ms ease, color 120ms ease;
+      }
+      .seg button.active {
+        background: var(--elevated);
+        color: var(--ink);
+        box-shadow: inset 0 0 0 1px var(--border);
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        min-height: 48px;
+        padding: 0.75rem 1rem;
+        border-radius: 11px;
+        border: 1px solid transparent;
+        font: inherit;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        transition: transform 90ms ease, opacity 120ms ease;
+      }
+      .btn:active { transform: scale(0.98); }
+      .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+      .btn-primary { background: var(--mint); color: #0a1f1a; width: 100%; }
+      .btn-secondary { background: var(--elevated); color: var(--ink); border-color: var(--border); }
+      .btn-sm { min-height: 36px; padding: 0.4rem 0.75rem; font-size: 0.82rem; font-weight: 600; border-radius: 9px; }
+      .row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+      .row > .btn { flex: 1 1 0; }
+      .status { font-size: 0.86rem; font-weight: 600; min-height: 1.2rem; }
+      .status.err { color: var(--danger); }
+      .status.ok { color: var(--mint); }
+      .key-box {
+        width: 100%;
+        min-height: 92px;
+        padding: 0.75rem;
+        border-radius: 10px;
+        border: 1px solid var(--mint-border);
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        line-height: 1.45;
+        resize: none;
+        word-break: break-all;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.22rem 0.55rem;
+        border-radius: 999px;
+        background: var(--mint-soft);
+        border: 1px solid var(--mint-border);
+        color: var(--mint);
+        font-family: var(--mono);
+        font-size: 0.74rem;
+        font-weight: 700;
+      }
+      .hist-item {
+        padding: 0.8rem;
+        border-radius: 11px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        display: grid;
+        gap: 0.35rem;
+      }
+      .hist-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+      .hist-meta { font-size: 0.78rem; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <img src="/icon.svg" alt="" />
+          <span>Hosila Keys</span>
+        </div>
+        <button id="lock-btn" type="button" class="btn btn-secondary btn-sm" hidden>Lock</button>
+      </header>
+
+      <!-- LOCK SCREEN -->
+      <section id="lock-view" class="card" hidden>
+        <div>
+          <h1>Unlock Keygen</h1>
+          <p style="margin-top:0.25rem;">Enter your private Hosila admin passcode to sign official offline license keys.</p>
+        </div>
+        <form id="unlock-form" style="display:grid;gap:0.85rem;">
+          <div class="field">
+            <label for="passcode-input">Admin Passcode</label>
+            <input
+              id="passcode-input"
+              type="password"
+              class="input"
+              autocomplete="current-password"
+              placeholder="Enter passcode"
+              required
+            />
+          </div>
+          <button type="submit" id="unlock-btn" class="btn btn-primary">Unlock</button>
+          <div id="unlock-status" class="status err" role="alert"></div>
+        </form>
+      </section>
+
+      <!-- GENERATOR SCREEN -->
+      <section id="app-view" hidden style="display:grid;gap:1rem;">
+        <form id="gen-form" class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h2>Generate License Key</h2>
+            <span class="badge">Offline HSL1</span>
+          </div>
+
+          <div class="field">
+            <label>Key Type</label>
+            <div class="seg seg-2" data-seg="type">
+              <button type="button" class="active" data-val="commercial">Commercial</button>
+              <button type="button" data-val="master">Master</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Product</label>
+            <div class="seg" data-seg="product">
+              <button type="button" class="active" data-val="hosila-pms">Hosila PMS</button>
+              <button type="button" data-val="hosila-ims">Hosila IMS</button>
+              <button type="button" data-val="hosila-pos">Hosila POS</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="customer-name">Hotel / Business Name</label>
+            <input id="customer-name" type="text" class="input" placeholder="e.g. Royal Palms Hotel" required />
+          </div>
+
+          <div class="field">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <label for="machine-id">Computer Machine ID</label>
+              <button type="button" id="paste-btn" class="btn btn-secondary btn-sm">Paste</button>
+            </div>
+            <input
+              id="machine-id"
+              type="text"
+              class="input mono"
+              placeholder="HSLA-A1B2-C3D4-E5F6"
+              autocomplete="off"
+              autocapitalize="characters"
+              spellcheck="false"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label>Duration</label>
+            <div class="seg seg-4" data-seg="duration">
+              <button type="button" data-val="30">30d</button>
+              <button type="button" class="active" data-val="365">1 Year</button>
+              <button type="button" data-val="lifetime">Lifetime</button>
+              <button type="button" data-val="custom">Custom</button>
+            </div>
+          </div>
+
+          <div id="custom-days-wrap" class="field" hidden>
+            <label for="custom-days">Custom Days</label>
+            <input id="custom-days" type="number" min="1" max="3650" value="90" class="input mono" />
+          </div>
+
+          <button type="submit" id="gen-btn" class="btn btn-primary">Generate Activation Key</button>
+          <div id="gen-status" class="status" aria-live="polite"></div>
+        </form>
+
+        <!-- OUTPUT CARD -->
+        <section id="result-card" class="card card-mint" hidden>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h2 id="res-title">Key Ready</h2>
+            <span id="res-serial" class="badge"></span>
+          </div>
+          <p id="res-meta" style="font-size:0.84rem;color:var(--muted);"></p>
+          <textarea id="res-key" class="key-box" readonly aria-label="Generated activation key"></textarea>
+          <div class="row">
+            <button type="button" id="copy-key-btn" class="btn btn-primary">Copy Key</button>
+            <a id="wa-send-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Send on WhatsApp</a>
+          </div>
+        </section>
+
+        <!-- LOCAL PHONE HISTORY -->
+        <section id="history-card" class="card" hidden>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h2>Recent Keys (This Phone)</h2>
+            <button type="button" id="clear-hist-btn" class="btn btn-secondary btn-sm">Clear</button>
+          </div>
+          <div id="history-list" style="display:grid;gap:0.6rem;"></div>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      const lockView = document.getElementById('lock-view');
+      const appView = document.getElementById('app-view');
+      const lockBtn = document.getElementById('lock-btn');
+      const unlockForm = document.getElementById('unlock-form');
+      const passcodeInput = document.getElementById('passcode-input');
+      const unlockStatus = document.getElementById('unlock-status');
+
+      const genForm = document.getElementById('gen-form');
+      const customerInput = document.getElementById('customer-name');
+      const machineInput = document.getElementById('machine-id');
+      const pasteBtn = document.getElementById('paste-btn');
+      const customDaysWrap = document.getElementById('custom-days-wrap');
+      const customDaysInput = document.getElementById('custom-days');
+      const genBtn = document.getElementById('gen-btn');
+      const genStatus = document.getElementById('gen-status');
+
+      const resultCard = document.getElementById('result-card');
+      const resTitle = document.getElementById('res-title');
+      const resSerial = document.getElementById('res-serial');
+      const resMeta = document.getElementById('res-meta');
+      const resKey = document.getElementById('res-key');
+      const copyKeyBtn = document.getElementById('copy-key-btn');
+      const waSendBtn = document.getElementById('wa-send-btn');
+
+      const historyCard = document.getElementById('history-card');
+      const historyList = document.getElementById('history-list');
+      const clearHistBtn = document.getElementById('clear-hist-btn');
+
+      const state = { type: 'commercial', product: 'hosila-pms', duration: '365' };
+      const HIST_KEY = 'hosila_mobile_keygen_history_v1';
+
+      function setView(authed) {
+        lockView.hidden = authed;
+        appView.hidden = !authed;
+        lockBtn.hidden = !authed;
+        if (authed) renderHistory();
+        else setTimeout(() => passcodeInput.focus(), 50);
+      }
+
+      async function checkSession() {
+        try {
+          const r = await fetch('/api/auth', { cache: 'no-store' });
+          const d = await r.json();
+          setView(Boolean(d.authenticated));
+        } catch {
+          setView(false);
+        }
+      }
+
+      unlockForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        unlockStatus.textContent = '';
+        const btn = document.getElementById('unlock-btn');
+        btn.disabled = true;
+        try {
+          const r = await fetch('/api/auth', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ passcode: passcodeInput.value }),
+          });
+          const d = await r.json();
+          if (!r.ok) {
+            unlockStatus.textContent = d.error || 'Incorrect passcode.';
+            passcodeInput.select();
+          } else {
+            passcodeInput.value = '';
+            setView(true);
+          }
+        } catch {
+          unlockStatus.textContent = 'Network error. Check your connection.';
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      lockBtn.addEventListener('click', async () => {
+        await fetch('/api/auth', { method: 'DELETE' }).catch(() => {});
+        resultCard.hidden = true;
+        setView(false);
+      });
+
+      document.querySelectorAll('[data-seg]').forEach((seg) => {
+        const key = seg.dataset.seg;
+        seg.querySelectorAll('button').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            seg.querySelectorAll('button').forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            state[key] = btn.dataset.val;
+            if (key === 'duration') {
+              customDaysWrap.hidden = state.duration !== 'custom';
+            }
+            if (key === 'type') {
+              const isMaster = state.type === 'master';
+              machineInput.required = !isMaster;
+              customerInput.required = !isMaster;
+              machineInput.placeholder = isMaster ? '* (or specific HSLA-...)' : 'HSLA-A1B2-C3D4-E5F6';
+            }
+          });
+        });
+      });
+
+      pasteBtn.addEventListener('click', async () => {
+        try {
+          const text = (await navigator.clipboard.readText()).trim().toUpperCase();
+          const match = text.match(/HSLA-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}/);
+          machineInput.value = match ? match[0] : text;
+        } catch {
+          machineInput.focus();
+        }
+      });
+
+      function loadHistory() {
+        try {
+          const arr = JSON.parse(localStorage.getItem(HIST_KEY) || '[]');
+          return Array.isArray(arr) ? arr : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function saveHistory(record) {
+        const list = loadHistory();
+        list.unshift(record);
+        try {
+          localStorage.setItem(HIST_KEY, JSON.stringify(list.slice(0, 30)));
+        } catch {}
+        renderHistory();
+      }
+
+      function renderHistory() {
+        const list = loadHistory();
+        historyCard.hidden = list.length === 0;
+        historyList.innerHTML = '';
+        list.forEach((item) => {
+          const div = document.createElement('div');
+          div.className = 'hist-item';
+          div.innerHTML = `
+            <div class="hist-top">
+              <span>${item.customerName}</span>
+              <span class="mono" style="color:var(--mint);font-size:0.76rem;">${item.id}</span>
+            </div>
+            <div class="hist-meta mono">${item.product} · ${item.durationLabel} · ${item.machineId}</div>
+            <div class="row" style="margin-top:0.25rem;">
+              <button type="button" class="btn btn-secondary btn-sm" data-copy-hist>Copy Key</button>
+              <a class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer" data-wa-hist>WhatsApp</a>
+            </div>
+          `;
+          div.querySelector('[data-copy-hist]').addEventListener('click', async (ev) => {
+            try {
+              await navigator.clipboard.writeText(item.activationKey);
+              ev.target.textContent = 'Copied!';
+              setTimeout(() => (ev.target.textContent = 'Copy Key'), 1400);
+            } catch {}
+          });
+          div.querySelector('[data-wa-hist]').href = buildWaLink(item);
+          historyList.appendChild(div);
+        });
+      }
+
+      function buildWaLink(record) {
+        const prodName =
+          record.product === 'hosila-pms'
+            ? 'Hosila PMS'
+            : record.product === 'hosila-ims'
+              ? 'Hosila IMS'
+              : record.product === 'hosila-pos'
+                ? 'Hosila POS'
+                : 'Hosila Suite';
+        const msg = [
+          `Hello ${record.customerName},`,
+          '',
+          `Here is your official ${prodName} (${record.durationLabel}) activation key:`,
+          '',
+          record.activationKey,
+          '',
+          'Paste this entire key into the Activation screen inside Hosila (works completely offline).',
+        ].join('\n');
+        return `https://wa.me/?text=${encodeURIComponent(msg)}`;
+      }
+
+      clearHistBtn.addEventListener('click', () => {
+        localStorage.removeItem(HIST_KEY);
+        renderHistory();
+      });
+
+      genForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        genStatus.className = 'status';
+        genStatus.textContent = '';
+        genBtn.disabled = true;
+
+        const durationMode = state.duration === 'lifetime' ? 'lifetime' : 'days';
+        const days =
+          state.duration === 'custom'
+            ? Number(customDaysInput.value || 90)
+            : state.duration === 'lifetime'
+              ? null
+              : Number(state.duration);
+
+        try {
+          const r = await fetch('/api/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              type: state.type,
+              product: state.product,
+              customerName: customerInput.value.trim(),
+              machineId: machineInput.value.trim().toUpperCase(),
+              durationMode,
+              days,
+            }),
+          });
+          const d = await r.json();
+          if (r.status === 401) {
+            setView(false);
+            return;
+          }
+          if (!r.ok) {
+            genStatus.className = 'status err';
+            genStatus.textContent = d.error || 'Could not generate key.';
+            return;
+          }
+
+          resTitle.textContent = d.record.customerName;
+          resSerial.textContent = d.record.id;
+          resMeta.textContent = `${d.record.product} · ${d.record.durationLabel} · ${d.record.machineId}`;
+          resKey.value = d.key;
+          waSendBtn.href = buildWaLink(d.record);
+          resultCard.hidden = false;
+          genStatus.className = 'status ok';
+          genStatus.textContent = 'Verified official offline key generated.';
+          saveHistory(d.record);
+          resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } catch {
+          genStatus.className = 'status err';
+          genStatus.textContent = 'Network error. Check your connection.';
+        } finally {
+          genBtn.disabled = false;
+        }
+      });
+
+      copyKeyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(resKey.value);
+          copyKeyBtn.textContent = 'Copied!';
+          setTimeout(() => (copyKeyBtn.textContent = 'Copy Key'), 1500);
+        } catch {
+          resKey.select();
+        }
+      });
+
+      checkSession();
+    </script>
+  </body>
+</html>
